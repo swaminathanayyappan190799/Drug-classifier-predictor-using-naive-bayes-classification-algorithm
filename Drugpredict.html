@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drug predictor using Machine Learning</title>
+	<style type="text/css">
+		body
+		{
+			background-color:#c99cc9;
+		}
+		h1
+		{
+			color:#6b6b47;
+			font-family:"verdana";
+		}
+		h2
+		{
+			font-family:"verdana";
+			font-size:20px;
+			color:#ccffff; 
+		}
+		h3
+		{
+			font-family:"verdana";
+			font-size:20px; 
+			color:#ccffff;
+		}
+		h4
+		{
+			font-family:"verdana";
+			font-size:20px; 
+			color:#ccffff;
+		}
+		h5
+		{
+			font-family:"verdana";
+			font-size:20px; 
+			color:#ccffff;
+		}
+		h6
+		{
+			font-family:"verdana";
+			font-size:20px; 
+			color:#ccffff;
+		}
+	</style>
+</head>
+<body>
+<center><h1>Mention the Below details to get recommendations of drug according to your health</h1>
+<br>
+<hr>
+<br>
+<form action="{{ url_for('predict')}}" method="post">
+<h2>Age of the patient:</h2><input type="Number" name="age" placeholder="From 1 to 80" min="1" max="100" required/>
+<h3>Gender of the patient :</h3>
+<select name="gender">
+<option value="" name="" id=""> </option>
+<option value="M" name="M" id="M">M</option>
+<option value="F" name="F" id="F">F</option>
+</select>
+<h4>Blood pressure levels :</h4>
+<select name="bplev">
+<option value="" name="" id=""> </option>
+<option value="HIGH" name="HIGH" id="HIGH">HIGH</option>
+<option value="LOW" name="LOW" id="LOW">LOW</option>
+<option value="NORMAL" name="NORMAL" id="NORMAL">NORMAL</option>
+</select>
+<h5>Cholestrol level :</h5>
+<select name="chollev">
+<option value="" name="" id=""> </option>
+<option value="HIGH" name="HIGH" id="HIGH">HIGH</option>
+<option value="NORMAL" name="NORMAL" id="NORMAL">NORMAL</option>
+</select>
+<h6>Sodium to potassium level in blood :</h6><input type="number" name="sodtopot" placeholder="As reported by the doctor" required/>
+<br>
+<br>
+<br>
+<button>Collect results</button>
+</form>
+<hr>
+<br>
+<h1>{{prediction_text}}</h1>
+</center>
+</body> 
+</html>
